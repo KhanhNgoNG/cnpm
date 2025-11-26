@@ -16,5 +16,4 @@ Whether you’re here for a quick espresso, a slow latte, or a seasonal special,
     ```bash
     npm start
     ```
-
-    Congrats! The app is now accessible at [localhost:1234](http://localhost:3030).
+Congrats! The app is now accessible at [localhost].
