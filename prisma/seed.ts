@@ -4,9 +4,9 @@ import { ItemModel, ProductModel, UserModel } from "@models";
 import products from "./products.json" with { type: "json" };
 
 const FALLBACK_USER: Omit<User, "id"> & { password: string } = {
-    name: "fallback",
-    email: "fallback@smartphone-garden.top",
-    password: "nhom11",
+    name: "admin",
+    email: "admin@gmail.com",
+    password: "admin",
     roleName: "administrator"
 };
 

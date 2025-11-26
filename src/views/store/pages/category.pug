@@ -1,25 +1,18 @@
 extends ../layout
 
-block layout-styles
+append layout-styles
     style.
         .card {
             transition: transform .5s;
         }
-
         .card:hover {
             transform: scale(1.1);
         }
-
         #categoryBannerImg {
             transition: transform .5s;
         }
-
         #categoryBannerImg:hover {
             transform: scale(1.1);
-        }
-
-        .noUi-connect {
-            background: var(--bs-black);
         }
 
 block layout-content
@@ -29,43 +22,71 @@ block layout-content
         h1.text-center.text-light.z-1 #{category.charAt(0).toUpperCase() + category.slice(1)}
 
         img#categoryBannerImg(
-            src=`https://images.unsplash.com/photo-${photo.link}?w=1920&h=1080&fit=crop&fm=jpg`
-            alt=`Photo by https://unplash.com/@${photo.author}`
+            src=`/public/images/home/${photo.link}`
             style="filter: brightness(33%)"
         ).w-100.h-100.position-absolute.top-0.start-0.object-fit-cover
 
     .container-sm.py-5
         .row.g-4
-            form#filterForm.col-12.col-md-6.col-lg-4.col-xl-3
+            form#filterForm.col-12.col-md-6.col-lg-4.col-xl-3(method="get")
+                // giữ lựa chọn hiện tại
+                input(type="hidden" name="category" id="categoryInput" value=filteredCategory)
+                input(type="hidden" name="tag" id="tagInput" value=filteredTag)
+
                 .d-flex.align-items-center.gap-3.mb-4
                     span Filters
                     hr.w-100.m-0
 
+                // Category buttons (dọc)
                 div.mb-3
-                    h6.fw-bold.mb-3 Brand
+                    h6.fw-bold.mb-3 Category
 
-                    select(name="brand").form-select
-                        option(value="" checked=!filteredBrand) All brands
+                    .d-flex.flex-column.gap-2
+                        // Nút All
+                        - const isAllActive = !filteredCategory
+                        button(
+                            type="button"
+                            class=`btn btn-sm w-100 ${isAllActive ? "btn-success" : "btn-outline-success"} rounded-pill px-5`
+                            data-category=""
+                        ) All
 
-                        each brand in brands
-                            option(value=brand checked=(filteredBrand === brand))= brand
+                        // Các category còn lại
+                        each cat in categories
+                            - const isActive = filteredCategory === cat.value
+                            button(
+                                type="button"
+                                class=`btn rounded-pill px-5 btn-sm w-100 ${isActive ? "btn-success" : "btn-outline-success"}`
+                                data-category=cat.value
+                            )= cat.label
 
+                // Tag buttons (best-seller / christmas)
                 div.mb-3
-                    h6.fw-bold.mb-3 Brand
+                    h6.fw-bold.mb-3 Tag
 
-                    #priceFilter.mb-3
+                    .d-flex.flex-column.gap-2
+                        - const isTagAll = !filteredTag
+                        button(
+                            type="button"
+                            class=`btn rounded-pill px-5 btn-sm w-100 ${isTagAll ? "btn-success" : "btn-outline-success"}`
+                            data-tag=""
+                        ) All
 
-                    input(type="hidden" name="priceRange" value=priceRange.join("-"))
-
-                    .d-flex.justify-content-between
-                        - const priceTypes = ["min", "max"]
-
-                        each [price, type] of priceRange.map((price, i) => [price, priceTypes[i]])
-                            span(id=type)= price.toLocaleString("vi-VN") + "đ"
+                        - const tagOptions = [{ value: "best-seller", label: "Best seller" }, { value: "christmas", label: "Christmas" }]
+                        each t in tagOptions
+                            - const isTagActive = filteredTag === t.value
+                            // Noel: tag Christmas dùng đỏ, best-seller dùng xanh
+                            - const isXmas = t.value === "christmas"
+                            - const activeClass = isXmas ? "btn-danger" : "btn-success"
+                            - const outlineClass = isXmas ? "btn-outline-danger" : "btn-outline-success"
+                            button(
+                                type="button"
+                                class=`btn rounded-pill px-5 btn-sm w-100 ${isTagActive ? activeClass : outlineClass}`
+                                data-tag=t.value
+                            )= t.label
 
                 .d-flex.gap-2
-                    button(type="submit").btn.btn-dark Submit
-                    button(type="reset").btn.btn-outline-dark Reset
+                    button(type="submit").btn.btn-success Apply
+                    button(type="reset").btn.btn-outline-secondary Reset
 
             .col
                 .row.row-cols-lg-2.row-cols-xl-3.g-4
@@ -75,26 +96,69 @@ block layout-content
 
     script.
         const filterForm = document.getElementById("filterForm");
-        const priceFilter = document.getElementById("priceFilter");
-        const priceRange = document.querySelector("[name=priceRange]");
+        const categoryInput = document.getElementById("categoryInput");
+        const tagInput = document.getElementById("tagInput");
 
-        filterForm.onreset = () => {
-            priceRange.value = "";
-            filterForm.submit();
+        function setupToggle(groupSelector, attrName, inputEl) {
+          const buttons = document.querySelectorAll(groupSelector);
+          buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+              const value = btn.getAttribute(attrName) || "";
+              inputEl.value = value;
+
+              if (attrName === "data-category") {
+                buttons.forEach(b => {
+                  b.classList.remove("btn-success","btn-outline-success");
+                  b.classList.add("btn-outline-success");
+                });
+                btn.classList.remove("btn-outline-success");
+                btn.classList.add("btn-success");
+              } else {
+                // attrName === "data-tag"
+                buttons.forEach(b => {
+                  const isXmas = b.dataset.tag === "christmas";
+                  b.classList.remove("btn-success","btn-outline-success","btn-danger","btn-outline-danger");
+                  b.classList.add(isXmas ? "btn-outline-danger" : "btn-outline-success");
+                });
+                const isXmas = btn.dataset.tag === "christmas";
+                btn.classList.remove("btn-outline-success","btn-outline-danger");
+                btn.classList.add(isXmas ? "btn-danger" : "btn-success");
+              }
+            });
+          });
         }
 
-        noUiSlider.create(priceFilter, {
-            start: [#{priceRange}],
-            connect: true,
-            range: { min: 0, max: 100000000 },
-            step: 100000
-        });
+        setupToggle("button[data-category]", "data-category", categoryInput);
+        setupToggle("button[data-tag]", "data-tag", tagInput);
 
-        priceFilter.noUiSlider.on("update", (values) => {
-            for (const [i, type] of [[0, "min"], [1, "max"]]) {
-                document.getElementById(type).textContent =
-                    Number(values[i]).toLocaleString("vi-VN") + "đ";
-            }
+        filterForm.addEventListener("reset", (e) => {
+          categoryInput.value = "";
+          tagInput.value = "";
 
-            priceRange.value = values.join("-");
+          const catButtons = document.querySelectorAll("button[data-category]");
+          catButtons.forEach(b => {
+            b.classList.remove("btn-success");
+            b.classList.add("btn-outline-success");
+          });
+          const catAll = document.querySelector('button[data-category=""]');
+          if (catAll) {
+            catAll.classList.remove("btn-outline-success");
+            catAll.classList.add("btn-success");
+          }
+
+          const tagButtons = document.querySelectorAll("button[data-tag]");
+          tagButtons.forEach(b => {
+            const isXmas = b.dataset.tag === "christmas";
+            b.classList.remove("btn-success","btn-danger","btn-outline-success","btn-outline-danger");
+            b.classList.add(isXmas ? "btn-outline-danger" : "btn-outline-success");
+          });
+          const tagAll = document.querySelector('button[data-tag=""]');
+          if (tagAll) {
+            tagAll.classList.remove("btn-outline-success","btn-outline-danger");
+            tagAll.classList.add("btn-success");
+          }
+
+          setTimeout(() => {
+            filterForm.submit();
+          }, 0);
         });

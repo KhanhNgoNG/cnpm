@@ -1,107 +1,94 @@
 extends ../layout
 
-block layout-styles
-    style.
-        .card {
-            transition: all .5s;
-        }
-
-        .card:hover {
-            transform: scale(1.075);
-            box-shadow: var(--bs-box-shadow);
-            z-index: 999;
-        }
+append layout-styles
+  style.
+    .card {
+      transition: all .5s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: var(--bs-box-shadow);
+      z-index: 2;
+    }
 
 block layout-content
-    -
-        const team = [
-            {
-                name: "Nguyễn Quang Trường",
-                github: "nguyenquangtruong08112005",
-                role: "Growth Maestro\n(Project Manager)",
-                quote: "it work why?"
-            }, {
-                name: "Trần Thái Bảo",
-                github: "tuibene",
-                role: "Digital Growth Consultant\n(Consultant)",
-                quote: "Git is easy — until you actually use it."
-            }, {
-                name: "Phan Anh Kiệt",
-                github: "Im-Karl",
-                role: "Tech Whisperer\n(Developer)",
-                quote: "TailwindCSS isn't CSS, it's a lifestyle."
-            }, {
-                name: "Nguyễn Phúc Toàn",
-                github: "ngphuctoan",
-                role: "Code Gardener\n(Developer)",
-                quote: "I use Arch btw."
-            }
-        ];
 
-    //- Introduction
-    section.py-5.bg-white
-        .container.text-center
-            h1.fw-bold
-                | Smartphone Garden 🌸
-            h2.fw-semibold
-                | Where your smartphone blooms
-            
-            p.lead.text-muted.mt-4.mb-0
-                | At Smartphone Garden, we believe your phone is more than just a gadget — it's your daily companion. From top-tier smartphones to essential accessories, we're here to help you grow your digital lifestyle effortlessly.
 
-    //- Mission, Vision, Core Values
-    section.py-5.bg-light
-        .container
-            .row.text-center.g-5.row-cols-1.row-cols-lg-3
-                .col
-                    h3.h4.fw-semibold.mb-3 🎯 Mission
-                    p.text-muted
-                        | Providing quality smartphone products, dedicated services and splendid shopping experiences, helping customers access the modern mobile world in a friendly and smart way.
-                
-                .col
-                    h3.h4.fw-semibold.mb-3 👁️‍🗨️ Vision
-                    p.text-muted
-                        | Become the leading friendly smartphone ecosystem in 🇻🇳 
-                        span.text-danger Vietnam 
-                        | &mdash; where everyone can find devices that suit their needs and lifestyle.
-                
-                .col
-                    h3.h4.fw-semibold.mb-3 💡 Core values
-                    ul.list-unstyled.text-muted
-                        li.mb-1
-                            span.fw-bold Dedication: 
-                            | Always put customers at the centre
-                        li.mb-1
-                            span.fw-bold Innovation: 
-                            | Update the latest tech every day
-                        li.mb-1
-                            span.fw-bold Honesty: 
-                            | Transparency in price and quality
-                        li.mb-1
-                            span.fw-bold Supportive: 
-                            | Helps you in every purchase
-                        li.mb-1
-                            span.fw-bold Friendly: 
-                            | Every visit is a pleasant experience
+  // Hero
+  section.py-5.bg-white
+    .container.text-center
+      h1.fw-bold 2Lane Coffee ☕
+      h2.fw-semibold.mt-2
+        | A cozy café for good conversations
 
-    //- Team
-    section.p-5.bg-white
-        .container.px-5
-            h3.h3.text-center.fw-semibold.mb-5 👥 Our teams!
+      p.lead.text-muted.mt-4.mb-0
+        | Smartphone Garden is a small place where coffee, tea, frappes, and pastries are treated like plants in a garden.
+        br
+        | Each drink is a “little pot,” made to suit your pace and your story.
 
-            .row.row-cols-1.row-cols-md-2.row-cols-xl-4.g-2.px-5
-                each member in team
-                    .col
-                        a.card.h-100.text-decoration-none(
-                            href=`https://github.com/${member.github}`
-                        )
-                            img.card-img-top(
-                                src=`https://avatars.githubusercontent.com/${member.github}`
-                                alt=member.name
-                            )
+  // Story
+  section.py-5.bg-light
+    .container
+      .row.align-items-center.g-4
+        .col-12.col-lg-6
+          h3.fw-semibold.mb-3 Our Café Story
+          p.text-muted.mb-2
+            | We started with a class assignment, then turned it into a real “café” — with a menu, stories, baristas, and regulars.
+          p.text-muted.mb-2
+            | Instead of selling phones, we thought it’d be friendlier to offer drinks you could “order” online.
+          p.text-muted.mb-0
+            | The interface, data, and experience are designed like an online café—simple, clear, and warmly welcoming.
 
-                            .card-body.text-center
-                                h4.h6.fw-bold.mb-1= member.name
-                                span.text-muted(style="white-space: pre-line")= member.role
+        .col-12.col-lg-6
+          .row.g-3
+            .col-6
+              .border.rounded-4.p-3.h-100.bg-white
+                h4.h6.fw-semibold.mb-1 20+ drinks
+                p.small.text-muted.mb-0
+                  | Coffee, tea, frappes, desserts—something for every mood.
+            .col-6
+              .border.rounded-4.p-3.h-100.bg-white
+                h4.h6.fw-semibold.mb-1 100% hand-crafted
+                p.small.text-muted.mb-0
+                  | Every item is hand-defined in our data, not just copied as templates.
+            .col-6
+              .border.rounded-4.p-3.h-100.bg-white
+                h4.h6.fw-semibold.mb-1 Focused on experience
+                p.small.text-muted.mb-0
+                  | Filter drinks by category, tag, size, and price to find your favorite.
+            .col-6
+              .border.rounded-4.p-3.h-100.bg-white
+                h4.h6.fw-semibold.mb-1 Learn & experiment
+                p.small.text-muted.mb-0
+                  | Both a class project and a playground for design & coding.
 
-                                p.fst-italic.card-text.my-4 "#{member.quote}"
+  // Cafe Inspiration
+  section.py-5.bg-white
+    .container
+      .row.g-4
+        .col-12.col-lg-4
+            h3.h4.fw-semibold.mb-3 Why all?
+            p.text-muted.mb-2
+                | all means more than one path—it’s about being a place for both quiet moments alone and lively conversations with friends. We want our café to feel like a friendly street you walk down every day: simple, honest, and cozy.
+
+
+        .col-12.col-lg-4
+          h3.h4.fw-semibold.mb-3 What do we focus on?
+          ul.list-unstyled.text-muted.mb-0
+            li.mb-1
+              span.fw-bold Smooth UI: 
+              | built with Bootstrap 5, cards, modals, clear filtering.
+            li.mb-1
+              span.fw-bold True Data: 
+              | Complete drinks menu with sizes, prices, tags.
+            li.mb-1
+              span.fw-bold Effortless UX: 
+              | Ordering, filtering, and details are quick and simple.
+
+        .col-12.col-lg-4
+          h3.h4.fw-semibold.mb-3 If the café were real?
+          p.text-muted.mb-2
+            | Drop by any time, order a drink, and chill with your laptop for coding, studying, or simply relaxing.
+          p.text-muted.mb-0
+            | Even though our shop is online only, this website is the prototype for our dream.
+

@@ -48,41 +48,54 @@ document.addEventListener("alpine:init", () => {
 
     const productModal = document.getElementById("productModal");
     const productForm = document.forms.productForm;
-
     const productEditDetails = document.getElementById("productEditDetails");
 
     if (productModal) {
-        productModal.addEventListener("show.bs.modal", event => {
-            productForm.reset();
+    productModal.addEventListener("show.bs.modal", event => {
+        productForm.reset();
 
-            const button = event.relatedTarget;
+        const button = event.relatedTarget;
 
-            if (button.getAttribute("data-bs-product")) {
-                const productData = JSON.parse(button.getAttribute("data-bs-product"));
-                const { tags, baseSpecs, items, createdAt, ...newProductData } = productData;
+        if (button.getAttribute("data-bs-product")) {
+        // EDIT PRODUCT
+        const productData = JSON.parse(button.getAttribute("data-bs-product"));
+        const { tags, items, createdAt, ...newProductData } = productData;
 
-                productForm.action = `/dashboard/products/update-product?id=${productData.id}`;
+        productForm.action = `/dashboard/products/update-product?id=${productData.id}`;
 
-                for (const [productInfo, value] of Object.entries(newProductData)) {
-                    productForm[productInfo].value = value;
-                }
-
-                setTimeout(() => {
-                    Alpine.$data(productEditDetails).tagsStr = tags.join();
-                    Alpine.$data(productEditDetails).specs = baseSpecs;
-                    Alpine.$data(productEditDetails).specMap = Object.fromEntries(
-                        Object.keys(baseSpecs).map(spec => [spec, spec])
-                    );
-                }, 100);
-            } else {
-                productForm.action = "/dashboard/products/add-product";
-
-                setTimeout(() => {
-                    Alpine.$data(productEditDetails).tagsStr = "";
-                    Alpine.$data(productEditDetails).specs = {};
-                    Alpine.$data(productEditDetails).specMap = {};
-                }, 100);
+        // fill các field text / select
+        for (const [productInfo, value] of Object.entries(newProductData)) {
+            if (productForm[productInfo]) {
+            productForm[productInfo].value = value;
             }
-        });
+        }
+
+        setTimeout(() => {
+            // tags: mảng -> chuỗi "a,b"
+            Alpine.$data(productEditDetails).tagsStr = (tags || []).join(",");
+
+            // sizes: map từ items -> [{ size, price }]
+            Alpine.$data(productEditDetails).sizes = (items || []).map(it => ({
+            size: it.specs?.Size || "",
+            price: it.price != null ? String(it.price) : ""
+            }));
+
+            // không dùng specs/specMap nữa
+            Alpine.$data(productEditDetails).specs = {};
+            Alpine.$data(productEditDetails).specMap = {};
+        }, 0);
+        } else {
+        // NEW PRODUCT
+        productForm.action = "/dashboard/products/add-product";
+
+        setTimeout(() => {
+            Alpine.$data(productEditDetails).tagsStr = "";
+            Alpine.$data(productEditDetails).sizes = [];
+            Alpine.$data(productEditDetails).specs = {};
+            Alpine.$data(productEditDetails).specMap = {};
+        }, 0);
+        }
+    });
     }
+
 });

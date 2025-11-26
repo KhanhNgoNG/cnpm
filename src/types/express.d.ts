@@ -14,3 +14,10 @@ declare module "express-session" {
         cart: Record<number, number>
     }
 }
+
+declare module "express-session" {
+  interface SessionData {
+    userName?: string;
+    roleName?: string;
+  }
+}

@@ -9,112 +9,96 @@ generator client {
 }
 
 model Role {
-    id              Int             @id @default(autoincrement())
-    name            String          @unique
+    id      Int    @id @default(autoincrement())
+    name    String @unique
 
-    users           User[]
+    users   User[]
 }
 
 model User {
-    id              Int             @id @default(autoincrement())
-    name            String
-    email           String          @unique
-    password        String
-    roleId          Int
+    id       Int    @id @default(autoincrement())
+    name     String
+    email    String @unique
+    password String
+    roleId   Int
 
-    role            Role            @relation(fields: [roleId], references: [id])
-    records         Record[]
+    role     Role    @relation(fields: [roleId], references: [id])
+    records  Record[]
 }
 
 model Spec {
-    id              Int             @id @default(autoincrement())
-    name            String          @unique
+    id      Int    @id @default(autoincrement())
+    name    String @unique
 
-    products        ProductBaseSpecs[]
-    items           ItemSpecs[]
+    items   ItemSpecs[]
 }
 
 model Tag {
-    id              String          @id
+    id       String    @id
 
-    products        Product[]       @relation("ProductTags")
+    products Product[] @relation("ProductTags")
 }
 
 model Product {
-    id              String          @id
-    name            String          @unique
-    brand           String
-    os              String
-    category        String
-    description     String?
-    createdAt       DateTime        @default(now())
+    id          String   @id
+    name        String   @unique    
+    category    String
+    description String?
+    createdAt   DateTime @default(now())
 
-    tags            Tag[]           @relation("ProductTags")
-    baseSpecs       ProductBaseSpecs[]
-    items           Item[]
+    tags        Tag[]    @relation("ProductTags")
+    items       Item[]
 }
 
 model Item {
-    id              Int             @id @default(autoincrement())
-    price           Int
-    stock           Int             @default(0)
-    productId       String
+    id        Int    @id @default(autoincrement())
+    price     Int
+    productId String
 
-    product         Product         @relation(fields: [productId], references: [id])
-    specs           ItemSpecs[]
-    records         RecordItems[]
-}
-
-model ProductBaseSpecs {
-    productId       String
-    specId          Int
-    value           String
-
-    product         Product         @relation(fields: [productId], references: [id])
-    spec            Spec            @relation(fields: [specId], references: [id])
-
-    @@id([productId, specId])
+    product   Product    @relation(fields: [productId], references: [id])
+    specs     ItemSpecs[]
+    records   RecordItems[]
 }
 
 model ItemSpecs {
-    itemId          Int
-    specId          Int
-    value           String
+    itemId Int
+    specId Int
+    value  String
 
-    Item            Item            @relation(fields: [itemId], references: [id], onDelete: Cascade)
-    spec            Spec            @relation(fields: [specId], references: [id])
+    Item   Item @relation(fields: [itemId], references: [id], onDelete: Cascade)
+    spec   Spec @relation(fields: [specId], references: [id])
 
     @@id([itemId, specId])
 }
 
- model Record {
-     id              String          @id
-     userId          Int
-     createdAt       DateTime        @default(now())
-     vnpayParams     Json
-     totalAmount     BigInt
-     status          String          @default("pending")
-     address         String          @default("")
-     phoneNumber     String          @default("")
-     user            User            @relation(fields: [userId], references: [id])
-     items           RecordItems[]
-     recipientName   String          @default("")
-     @@index([userId])
- }
+model Record {
+    id            String   @id
+    userId        Int
+    createdAt     DateTime @default(now())
+    vnpayParams   Json
+    totalAmount   BigInt
+    status        String   @default("pending")
+    address       String   @default("")
+    phoneNumber   String   @default("")
+    user          User     @relation(fields: [userId], references: [id])
+    items         RecordItems[]
+    recipientName String   @default("")
 
+    @@index([userId])
+}
 
 model RecordItems {
-    recordId        String
-    itemId          Int
-    amount          Int
+    recordId String
+    itemId   Int
+    amount   Int
 
-    record          Record          @relation(fields: [recordId], references: [id])
-    item            Item            @relation(fields: [itemId], references: [id])
+    record   Record @relation(fields: [recordId], references: [id])
+    item     Item   @relation(fields: [itemId], references: [id])
 
     @@id([recordId, itemId])
 }
 
 model RevokedToken {
-    jti             String          @id
-    expiresAt       DateTime
+    jti       String   @id
+    expiresAt DateTime
 }

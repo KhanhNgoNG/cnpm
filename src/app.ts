@@ -20,6 +20,11 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 2592000000 }
 }));
+app.use((req, res, next) => {
+  res.locals.userName = req.session?.userName || "";
+  res.locals.roleName = req.session?.roleName || "";
+  next();
+});
 
 app.set("view engine", "pug");
 app.set("views", "./src/views");
@@ -46,8 +51,12 @@ app.use("/",
     errorHandlingMiddleware
 );
 
-app.use((req: Request, res: Response) =>
-    res.redirect("/404")
-);
+app.use((req: Request, res: Response) => {
+  res.status(404).render("store/pages/404", {
+    userName: res.locals.userName,
+    showDashboard: ["administrator", "manager"].includes(res.locals.roleName),
+    cartCount: 0
+  });
+});
 
 export default app;

@@ -1,379 +1,261 @@
 [
     {
-        "id": "iphone-15-pro-max",
-        "name": "iPhone 15 Pro Max",
-        "brand": "Apple",
-        "category": "smartphones",
-        "os": "ios 18",
-        "tags": ["ios","flagship","camera","5G"],
-        "description": "The ultimate iPhone experience with the A17 Pro chip and a titanium frame.",
-        "baseSpecs": {
-            "display": "6.7\" OLED",
-            "chipset": "A17 Pro",
-            "battery": "4422mAh",
-            "camera": "Triple 48MP"
-        },
+        "id": "cf-espresso",
+        "name": "Espresso",
+        "category": "cf",
+        "description": "Espresso đậm vị, pha từ hạt rang vừa, phù hợp uống nhanh buổi sáng.",
+        "tags": ["best-seller"],
         "items": [
-            {
-                "price": 33990000,
-                "stock": 10,
-                "specs": {
-                    "Color": "Natural Titanium",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 36990000,
-                "stock": 5,
-                "specs": {
-                    "Color": "Blue Titanium",
-                    "Storage": "512GB"
-                }
-            },
-            {
-                "price": 42990000,
-                "stock": 2,
-                "specs": {
-                    "Color": "White Titanium",
-                    "Storage": "1TB"
-                }
-            }
+        { "price": 30000, "specs": { "Size": "S" } },
+        { "price": 35000, "specs": { "Size": "M" } },
+        { "price": 40000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "galaxy-s24-ultra",
-        "name": "Samsung Galaxy S24 Ultra",
-        "brand": "Samsung",
-        "category": "smartphones",
-        "os": "Android 14 (One UI 7)",
-        "tags": [
-            "android",
-            "s-pen",
-            "5G",
-            "flagship"
-        ],
-        "description": "Samsung's top-tier flagship with a massive camera upgrade and S Pen.",
-        "baseSpecs": {
-            "display": "6.8\" AMOLED",
-            "chipset": "Snapdragon 8 Gen 3",
-            "battery": "5000mAh",
-            "camera": "200MP Quad Cam"
-        },
+        "id": "cf-suada",
+        "name": "Cà phê sữa đá",
+        "category": "cf",
+        "description": "Cà phê phin truyền thống kết hợp sữa đặc và đá, vị đậm đà, ngọt béo.",
+        "tags": ["best-seller"],
         "items": [
-            {
-                "price": 31990000,
-                "stock": 8,
-                "specs": {
-                    "Color": "Titanium Gray",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 35990000,
-                "stock": 6,
-                "specs": {
-                    "Color": "Titanium Violet",
-                    "Storage": "512GB"
-                }
-            }
+        { "price": 32000, "specs": { "Size": "S" } },
+        { "price": 38000, "specs": { "Size": "M" } },
+        { "price": 43000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "reno10-5g",
-        "name": "OPPO Reno10 5G",
-        "brand": "OPPO",
-        "category": "smartphones",
-        "os": "Android 13 (Coloros 13)",
-        "tags": [
-            "android",
-            "selfie",
-            "budget"
-        ],
-        "description": "A stylish mid-range phone with great camera and performance.",
-        "baseSpecs": {
-            "display": "6.7\" AMOLED",
-            "chipset": "Dimensity 7050",
-            "battery": "5000mAh",
-            "camera": "64MP + 32MP Telephoto"
-        },
+        "id": "cf-den",
+        "name": "Cà phê đen đá",
+        "category": "cf",
+        "description": "Cà phê đen phin rang đậm, vị mạnh và thơm, dành cho người thích nguyên bản.",
+        "tags": [],
         "items": [
-            {
-                "price": 10990000,
-                "stock": 20,
-                "specs": {
-                    "Color": "Cosmic Black",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 11990000,
-                "stock": 12,
-                "specs": {
-                    "Color": "Glowing Gold",
-                    "Storage": "256GB"
-                }
-            }
+        { "price": 28000, "specs": { "Size": "S" } },
+        { "price": 32000, "specs": { "Size": "M" } },
+        { "price": 36000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "mi-13-pro",
-        "name": "Xiaomi Mi 13 Pro",
-        "brand": "Xiaomi",
-        "category": "smartphones",
-        "os": "Android 13 (MIUI 15)",
-        "tags": [
-            "android",
-            "camera",
-            "flagship"
-        ],
-        "description": "Xiaomi's flagship with Leica optics and fast charging.",
-        "baseSpecs": {
-            "display": "6.73\" AMOLED",
-            "chipset": "Snapdragon 8 Gen 2",
-            "battery": "4820mAh",
-            "camera": "50MP Triple Leica Cam"
-        },
+        "id": "cf-coconut",
+        "name": "Cà phê cốt dừa",
+        "category": "cf",
+        "description": "Cà phê phin xay cùng cốt dừa béo và đá, giống một ly cà phê sinh tố mát lạnh.",
+        "tags": ["best-seller"],
         "items": [
-            {
-                "price": 25990000,
-                "stock": 10,
-                "specs": {
-                    "Color": "Ceramic White",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 27990000,
-                "stock": 8,
-                "specs": {
-                    "Color": "Cedar Green",
-                    "Storage": "512GB"
-                }
-            }
+        { "price": 45000, "specs": { "Size": "S" } },
+        { "price": 52000, "specs": { "Size": "M" } },
+        { "price": 58000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "vivo-x90-pro",
-        "name": "Vivo X90 Pro",
-        "brand": "Vivo",
-        "category": "smartphones",
-        "os": "Android 13 (Funtouch os 13)",
-        "tags": [
-            "android",
-            "camera",
-            "premium"
-        ],
-        "description": "Vivo's flagship with Zeiss optics and fast charging.",
-        "baseSpecs": {
-            "display": "6.78\" AMOLED",
-            "chipset": "Dimensity 9200",
-            "battery": "4870mAh",
-            "camera": "50MP + 50MP Ultra Wide + 12MP Portrait"
-        },
+        "id": "cf-muoi",
+        "name": "Cà phê muối",
+        "category": "cf",
+        "description": "Cà phê phin kết hợp lớp kem muối mặn ngọt, hậu vị giống caramel mặn nhẹ.",
+        "tags": [],
         "items": [
-            {
-                "price": 25990000,
-                "stock": 7,
-                "specs": {
-                    "Color": "Legendary Black",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 28990000,
-                "stock": 5,
-                "specs": {
-                    "Color": "Morning Blue",
-                    "Storage": "512GB"
-                }
-            }
+        { "price": 42000, "specs": { "Size": "S" } },
+        { "price": 48000, "specs": { "Size": "M" } },
+        { "price": 54000, "specs": { "Size": "L" } }
+        ]
+    },
+
+    {
+        "id": "tea-oolong-milk",
+        "name": "Trà oolong sữa trân châu",
+        "category": "tea",
+        "description": "Trà oolong thơm nhẹ kết hợp sữa và trân châu trắng, vị béo và thanh.",
+        "tags": ["best-seller"],
+        "items": [
+        { "price": 38000, "specs": { "Size": "S" } },
+        { "price": 43000, "specs": { "Size": "M" } },
+        { "price": 48000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "pixel-8-pro",
-        "name": "Google Pixel 8 Pro",
-        "brand": "Google",
-        "category": "smartphones",
-        "os": "Android 14",
-        "tags": [
-            "android",
-            "pixel",
-            "flagship",
-            "camera"
-        ],
-        "description": "Google's flagship with AI-powered camera and Tensor G3 chip.",
-        "baseSpecs": {
-            "display": "6.7\" OLED",
-            "chipset": "Google Tensor G3",
-            "battery": "5000mAh",
-            "camera": "50MP Triple Cam"
-        },
+        "id": "tea-classic-milk",
+        "name": "Trà sữa truyền thống",
+        "category": "tea",
+        "description": "Trà đen đậm kết hợp sữa, vị béo ngọt dễ uống, hợp với nhiều loại topping.",
+        "tags": ["best-seller"],
         "items": [
-            {
-                "price": 29990000,
-                "stock": 15,
-                "specs": {
-                    "Color": "Porcelain",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 32990000,
-                "stock": 10,
-                "specs": {
-                    "Color": "Obsidian",
-                    "Storage": "512GB"
-                }
-            }
+        { "price": 35000, "specs": { "Size": "S" } },
+        { "price": 40000, "specs": { "Size": "M" } },
+        { "price": 45000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "realme-gt-2-pro",
-        "name": "Realme GT 2 Pro",
-        "brand": "Realme",
-        "category": "smartphones",
-        "os": "Android 12 (Realme UI 3.0)",
-        "tags": [
-            "android",
-            "gaming",
-            "5G"
-        ],
-        "description": "A gaming-centric phone with top-tier performance and 120Hz AMOLED display.",
-        "baseSpecs": {
-            "display": "6.7\" AMOLED",
-            "chipset": "Snapdragon 8 Gen 1",
-            "battery": "5000mAh",
-            "camera": "50MP Triple Cam"
-        },
+        "id": "tea-peach",
+        "name": "Trà đào cam sả",
+        "category": "tea",
+        "description": "Trà đào kết hợp cam và sả, vị chua ngọt mát, kèm miếng đào giòn.",
+        "tags": [],
         "items": [
-            {
-                "price": 18990000,
-                "stock": 5,
-                "specs": {
-                    "Color": "Steel Blue",
-                    "Storage": "128GB"
-                }
-            },
-            {
-                "price": 20990000,
-                "stock": 8,
-                "specs": {
-                    "Color": "Master Grey",
-                    "Storage": "256GB"
-                }
-            }
+        { "price": 39000, "specs": { "Size": "S" } },
+        { "price": 45000, "specs": { "Size": "M" } },
+        { "price": 50000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "oneplus-11",
-        "name": "OnePlus 11 5G",
-        "brand": "OnePlus",
-        "category": "smartphones",
-        "os": "Android 13 (Oxygenos 13)",
-        "tags": [
-            "android",
-            "performance",
-            "5G"
-        ],
-        "description": "OnePlus' flagship with a stunning 120Hz display and Snapdragon 8 Gen 2.",
-        "baseSpecs": {
-            "display": "6.7\" Fluid AMOLED",
-            "chipset": "Snapdragon 8 Gen 2",
-            "battery": "5000mAh",
-            "camera": "50MP + 48MP Ultra Wide + 32MP Telephoto"
-        },
+        "id": "tea-matcha",
+        "name": "Matcha sữa đá",
+        "category": "tea",
+        "description": "Bột trà xanh matcha pha sữa, vị hơi đắng nhẹ, hậu vị ngọt và béo.",
+        "tags": [],
         "items": [
-            {
-                "price": 28990000,
-                "stock": 7,
-                "specs": {
-                    "Color": "Eternal Green",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 31990000,
-                "stock": 4,
-                "specs": {
-                    "Color": "Titanium Black",
-                    "Storage": "512GB"
-                }
-            }
+        { "price": 42000, "specs": { "Size": "S" } },
+        { "price": 48000, "specs": { "Size": "M" } },
+        { "price": 54000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "xperia-1-iv",
-        "name": "Sony Xperia 1 IV",
-        "brand": "Sony",
-        "category": "smartphones",
-        "os": "Android 12",
-        "tags": [
-            "android",
-            "camera",
-            "pro",
-            "4K"
-        ],
-        "description": "Sony's flagship with a 4K display and pro-level camera system.",
-        "baseSpecs": {
-            "display": "6.5\" 4K OLED",
-            "chipset": "Snapdragon 8 Gen 1",
-            "battery": "5000mAh",
-            "camera": "12MP Triple Cam"
-        },
+        "id": "tea-rose-lychee",
+        "name": "Trà hoa hồng vải",
+        "category": "tea",
+        "description": "Trà hương hoa hồng thanh nhẹ kết hợp vải tươi, thơm và mát.",
+        "tags": [],
         "items": [
-            {
-                "price": 39990000,
-                "stock": 3,
-                "specs": {
-                    "Color": "Frosted Black",
-                    "Storage": "256GB"
-                }
-            },
-            {
-                "price": 42990000,
-                "stock": 1,
-                "specs": {
-                    "Color": "Frosted Purple",
-                    "Storage": "512GB"
-                }
-            }
+        { "price": 42000, "specs": { "Size": "S" } },
+        { "price": 48000, "specs": { "Size": "M" } },
+        { "price": 54000, "specs": { "Size": "L" } }
+        ]
+    },
+
+    {
+        "id": "ice-cookie",
+        "name": "Cookie đá xay",
+        "category": "ice",
+        "description": "Đá xay cùng sốt cookie socola và kem tươi, rất hợp cho người thích ngọt.",
+        "tags": ["best-seller"],
+        "items": [
+        { "price": 49000, "specs": { "Size": "S" } },
+        { "price": 55000, "specs": { "Size": "M" } },
+        { "price": 61000, "specs": { "Size": "L" } }
         ]
     },
     {
-        "id": "zenfone-9",
-        "name": "Asus Zenfone 9",
-        "brand": "Asus",
-        "category": "smartphones",
-        "os": "Android 12",
-        "tags": [
-            "android",
-            "compact",
-            "5G"
-        ],
-        "description": "Compact flagship with powerful Snapdragon 8+ Gen 1 and 120Hz AMOLED.",
-        "baseSpecs": {
-            "display": "5.9\" AMOLED",
-            "chipset": "Snapdragon 8+ Gen 1",
-            "battery": "4300mAh",
-            "camera": "50MP + 12MP Ultra Wide"
-        },
+        "id": "ice-matcha",
+        "name": "Matcha đá xay",
+        "category": "ice",
+        "description": "Matcha xay cùng đá, sữa và kem tươi, vị béo thơm, hơi đắng nhẹ.",
+        "tags": [],
         "items": [
-            {
-                "price": 19990000,
-                "stock": 10,
-                "specs": {
-                    "Color": "Midnight Black",
-                    "Storage": "128GB"
-                }
-            },
-            {
-                "price": 21990000,
-                "stock": 7,
-                "specs": {
-                    "Color": "Moonlight White",
-                    "Storage": "256GB"
-                }
-            }
+        { "price": 49000, "specs": { "Size": "S" } },
+        { "price": 55000, "specs": { "Size": "M" } },
+        { "price": 61000, "specs": { "Size": "L" } }
         ]
+    },
+    {
+        "id": "ice-coconut-coffee",
+        "name": "Cà phê dừa đá xay",
+        "category": "ice",
+        "description": "Cà phê và cốt dừa xay cùng đá, như một ly sinh tố cà phê dừa mát lạnh.",
+        "tags": ["best-seller"],
+        "items": [
+        { "price": 52000, "specs": { "Size": "S" } },
+        { "price": 58000, "specs": { "Size": "M" } },
+        { "price": 64000, "specs": { "Size": "L" } }
+        ]
+    },
+    {
+        "id": "ice-chocolate",
+        "name": "Socola đá xay",
+        "category": "ice",
+        "description": "Socola đậm kết hợp sữa và đá xay, thêm lớp kem tươi phía trên.",
+        "tags": [],
+        "items": [
+        { "price": 48000, "specs": { "Size": "S" } },
+        { "price": 54000, "specs": { "Size": "M" } },
+        { "price": 60000, "specs": { "Size": "L" } }
+        ]
+    },
+    {
+        "id": "ice-yogurt-berry",
+        "name": "Sữa chua dâu đá xay",
+        "category": "ice",
+        "description": "Sữa chua xay cùng đá và sốt dâu, vị chua nhẹ, mát và dễ uống.",
+        "tags": [],
+        "items": [
+        { "price": 45000, "specs": { "Size": "S" } },
+        { "price": 51000, "specs": { "Size": "M" } },
+        { "price": 57000, "specs": { "Size": "L" } }
+        ]
+    },
+
+    {
+        "id": "bread-cheesecake",
+        "name": "Cheesecake chanh dây",
+        "category": "bread",
+        "description": "Bánh cheesecake vị chanh dây chua nhẹ, béo vừa, ăn lạnh.",
+        "tags": ["best-seller"],
+        "items": [
+        { "price": 45000, "specs": { "Size": "S" } },
+        { "price": 55000, "specs": { "Size": "M" } }
+        ]
+    },
+    {
+        "id": "bread-brownie",
+        "name": "Brownie socola",
+        "category": "bread",
+        "description": "Bánh brownie socola đậm vị, ăn kèm cà phê hoặc trà rất hợp.",
+        "tags": [],
+        "items": [
+        { "price": 39000, "specs": { "Size": "S" } },
+        { "price": 45000, "specs": { "Size": "M" } }
+        ]
+    },
+
+    {
+    "id": "cf-xmas-spice-latte",
+    "name": "Cà phê latte Giáng Sinh",
+    "category": "cf",
+    "description": "Latte kết hợp sốt quế, gừng và kem tươi, tạo hương vị ấm cho mùa Giáng Sinh.",
+    "tags": ["christmas"],
+    "items": [
+        { "price": 49000, "specs": { "Size": "S" } },
+        { "price": 55000, "specs": { "Size": "M" } },
+        { "price": 61000, "specs": { "Size": "L" } }
+    ]
+    },
+
+    {
+    "id": "tea-xmas-apple-cinnamon",
+    "name": "Trà táo quế Giáng Sinh",
+    "category": "tea",
+    "description": "Trà đen ủ cùng táo và quế, vị ngọt nhẹ, thơm mùi Giáng Sinh đặc trưng.",
+    "tags": ["christmas"],
+    "items": [
+        { "price": 45000, "specs": { "Size": "S" } },
+        { "price": 50000, "specs": { "Size": "M" } },
+        { "price": 55000, "specs": { "Size": "L" } }
+    ]
+    },
+
+    {
+    "id": "ice-xmas-peppermint-mocha",
+    "name": "Peppermint mocha đá xay",
+    "category": "ice",
+    "description": "Mocha socola bạc hà đá xay, thêm kem tươi và vụn kẹo que Giáng Sinh.",
+    "tags": ["christmas"],
+    "items": [
+        { "price": 55000, "specs": { "Size": "S" } },
+        { "price": 61000, "specs": { "Size": "M" } },
+        { "price": 67000, "specs": { "Size": "L" } }
+    ]
+    },
+
+    {
+    "id": "bread-xmas-gingerbread",
+    "name": "Bánh gừng Giáng Sinh",
+    "category": "bread",
+    "description": "Bánh quy gừng kiểu Giáng Sinh, trang trí icing nhiều màu.",
+    "tags": ["christmas"],
+    "items": [
+        { "price": 39000, "specs": { "Size": "S" } },
+        { "price": 49000, "specs": { "Size": "M" } },
+        { "price": 55000, "specs": { "Size": "L" } }
+    ]
     }
+
+
 ]

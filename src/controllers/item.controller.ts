@@ -3,8 +3,8 @@ import { ItemModel } from "@models";
 import { Request, Response } from "express";
 
 const itemSchema = z.object({
-    price: z.number().min(100000, "Price must be >= 100.000đ."),
-    stock: z.number(),
+    price: z.number().min(10000, "Price must be >= 100.000đ."),
+
     specs: z.record(z.string())
 });
 

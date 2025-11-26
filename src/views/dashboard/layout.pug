@@ -1,34 +1,58 @@
 doctype html
 html
-    head
-        meta(charset="utf8")
-        meta(name="viewport" content="width=device-width, initial-scale=1")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
 
-        title Dashboard | Smartphone Store
+    link(rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.5/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://unpkg.com/nouislider@15.8.1/dist/nouislider.min.css")
+    link(rel="stylesheet" href="/public/css/styles.css")
+    script(src="https://unpkg.com/nouislider@15.8.1/dist/nouislider.min.js")
 
-        link(rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.5/dist/css/bootstrap.min.css")
-        link(rel="stylesheet" href="/public/css/styles.css")
-        
-        style.
-            #userPagination .page-link {
-                transition: transform .15s ease, background-color .15s ease;
-                color: #000;
-            }
-            #userPagination .page-link:hover {
-                transform: scale(1.1);
-                background-color: rgba(0,0,0,0.05);
-            }
+    block layout-styles
+      style.
+        :root {
+          /* Primary: green (Christmas) */
+          --bs-primary: #0b8f55;
+          --bs-primary-rgb: 11,143,85;
+          /* Noel red (danger/accents) */
+          --bs-danger: #c82333;
+          --bs-danger-rgb: 200,35,51;
+          /* Body background + text */
+          --bs-body-bg: #f3f7f2;
+          --bs-body-color: #212529;
+        }
 
-            #userPagination .page-item.active .page-link {
-                background-color: #464448;  
-                border-color:#423f44;
-                color: #fff;
-            }
-            #userPagination .page-item.active .page-link:hover {
-                background-color:#3d3a40;
-            }
+        body {
+          background-color: var(--bs-body-bg);
+        }
 
-        block layout-style
+        /* Dark navbar/header for Noel contrast */
+        header.navbar, .navbar {
+          background-color: #0b1920 !important;
+        }
+
+        .navbar .nav-link,
+        .navbar .navbar-brand {
+          color: #f8f9fa !important;
+        }
+
+        .navbar .nav-link.active {
+          color: #ffdd57 !important;
+        }
+
+        main {
+          background: transparent;
+        }
+
+        /* Beautiful card hover effect */
+        .card {
+          transition: all .5s;
+        }
+        .card:hover {
+          transform: scale(1.04);
+          box-shadow: 0 8px 32px rgba(16, 58, 32, 0.08);
+          z-index: 2;
+        }
 
     body.d-flex.flex-column.min-vh-100
         include partials/header
@@ -42,9 +66,8 @@ html
 
                 block layout-content
 
-        script(src="https://unpkg.com/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js")
-        script(src="https://unpkg.com/iconify-icon")
 
-        block js-imports
-
-        script(src="https://unpkg.com/alpinejs@3.x.x")
+    script(src="https://unpkg.com/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js")
+    script(src="https://unpkg.com/iconify-icon")
+    block js-imports
+    script(src="https://unpkg.com/alpinejs@3.x.x")

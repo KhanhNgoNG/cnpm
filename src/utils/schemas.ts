@@ -17,19 +17,19 @@ export const roleSchema = z.object({
 });
 
 export const productSchema = z.object({
-    id: z.string().min(1),
-    name: z.string().min(1),
-    os: z.string().min(1),
-    brand: z.string().min(1),
-    category: z.string().min(1),
-    tags: z.string().min(1).transform(val => JSON.parse(val)),
-    description: z.string(),
-    baseSpecs: z.string().min(1).transform(val => JSON.parse(val))
+  id: z.string().min(1),
+  name: z.string().min(1),
+  category: z.string().min(1),
+  // cho phép "" rồi parse thành []
+  tags: z
+    .string()
+    .transform(val => (val ? JSON.parse(val) : [] as string[])),
+  description: z.string(),
 });
+
 
 export const itemSchema = z.object({
     productId: z.string().min(1),
     price: z.coerce.number().min(0),
-    stock: z.coerce.number().min(0),
     specs: z.string().min(1).transform(val => JSON.parse(val))
 });

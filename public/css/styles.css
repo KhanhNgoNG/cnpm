@@ -1,19 +1,102 @@
 @import "https://fonts.googleapis.com/css2?family=Montserrat";
 @import "https://fonts.googleapis.com/css2?family=Comfortaa";
 
-*:not(.badge):not(.spinner-border):not([type=radio]):not([role=switch]) {
-    border-radius: 0 !important;
-}
-
 body {
-    font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-iconify-icon {
-    font-size: 1.5rem;
-    vertical-align: -.3125rem;
+#sidebar, .offcanvas-lg.offcanvas-start {
+  background: #fff;
+  border-right: 2px solid #d8decf;
 }
 
-.dropdown-item:active {
-    color: var(--bs-dropdown-link-active-color) !important;
+.nav.nav-pills .nav-link {
+  color: #0b8f55;
+  font-weight: 500;
+  border-radius: 50rem !important;
+  transition: background .2s, color .2s, box-shadow .2s;
+  margin: 0.25rem;
+  letter-spacing: .05em;
+}
+.nav.nav-pills .nav-link:hover {
+  background: #ebe8e8;
+  color: #c82333;
+  box-shadow: 0 2px 8px rgba(200, 35, 51, 0.04);
+  transform: translateY(-1px) scale(1.045);
+}
+.nav.nav-pills .nav-link.active, 
+.nav.nav-pills .nav-link.active:focus, 
+.nav.nav-pills .nav-link.active:hover {
+  background: linear-gradient(90deg, #0b8f55 0%, #c82333 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 18px rgba(11,143,85,0.09);
+}
+.nav.nav-pills .nav-link iconify-icon {
+  font-size: 1.2em;
+  color: #0b8f55;
+  vertical-align: text-bottom;
+  transition: color .15s;
+}
+.nav.nav-pills .nav-link.active iconify-icon {
+  color: #ffe066;
+}
+
+.btn.rounded-pill {
+  border-radius: 50rem !important;
+}
+
+header.navbar {
+  background: linear-gradient(90deg,#0b8f55 0%,#4e342e 20%) !important;
+  border-bottom: 4px solid #ffe066;
+  color: #fff;
+}
+.navbar-brand {
+  color: #ffe066 !important;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  background: rgba(200,35,51,0.10);
+  border-radius: .85rem;
+}
+.btn.bg-transparent,
+.btn.bg-transparent:active,
+.btn.bg-transparent:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.iconify-icon, .navbar .iconify-icon {
+  vertical-align: middle;
+}
+.dropdown-menu {
+  border-radius: .7rem;
+  min-width: 12rem;
+}
+
+/* User dropdown trong header: chữ & icon luôn trắng nổi bật */
+.dropdown .btn, .dropdown .btn:active, .dropdown .btn:focus {
+  color: #fff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-weight: 500;
+  outline: none;
+  border: none;
+}
+.dropdown .btn iconify-icon {
+  color: #fff !important;
+  font-size: 1.5em;
+  vertical-align: -.2em;
+}
+.dropdown .btn span, .dropdown .btn .d-sm-inline {
+  color: #fff !important;
+}
+
+.carousel-caption {
+  background: linear-gradient(0deg, rgba(0,0,0,0.12), rgba(0,0,0,0.02));
+  border-radius: 1.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.carousel-caption h1,
+.carousel-caption h4 {
+  color: #fff !important;
+  text-shadow: 0 4px 20px rgba(0,0,0,.16);
 }

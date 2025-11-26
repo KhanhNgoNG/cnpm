@@ -1,23 +1,55 @@
 doctype html
 html
-    head
-        meta(name="viewport" content="width=device-width, initial-scale=1")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
 
-        link(rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.5/dist/css/bootstrap.min.css")
-        link(rel="stylesheet" href="https://unpkg.com/nouislider@15.8.1/dist/nouislider.min.css")
-        link(rel="stylesheet" href="/public/css/styles.css")
+    link(rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.5/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://unpkg.com/nouislider@15.8.1/dist/nouislider.min.css")
+    link(rel="stylesheet" href="/public/css/styles.css")
 
-        script(src="https://unpkg.com/nouislider@15.8.1/dist/nouislider.min.js")
+    script(src="https://unpkg.com/nouislider@15.8.1/dist/nouislider.min.js")
 
-        block layout-styles
-    
-    body.d-flex.flex-column.min-vh-100
-        include partials/header
+    block layout-styles
+      style.
+        :root {
+          /* Primary: xanh lá Noel */
+          --bs-primary: #0b8f55;
+          --bs-primary-rgb: 11, 143, 85;
 
-        main.flex-fill.d-flex.flex-column
-            block layout-content
+          /* Accent đỏ Noel (dùng cho btn-danger, badge, text-danger) */
+          --bs-danger: #c82333;
+          --bs-danger-rgb: 200, 35, 51;
 
-        include partials/footer
+          /* Nền trang hơi ấm, sáng */
+          --bs-body-bg: #f3f7f2;
+          --bs-body-color: #212529;
+        }
 
-        script(src="https://unpkg.com/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js")
-        script(src="https://unpkg.com/iconify-icon")
+        body {
+          background-color: var(--bs-body-bg);
+        }
+
+        /* Navbar/header tối lại cho nổi màu Noel */
+        header.navbar, .navbar {
+          background-color: #0b1920;
+        }
+
+        .navbar .nav-link,
+        .navbar .navbar-brand {
+          color: #f8f9fa;
+        }
+
+        .navbar .nav-link.active {
+          color: #ffdd57;
+        }
+
+  body.d-flex.flex-column.min-vh-100
+    include partials/header
+
+    main.flex-fill.d-flex.flex-column
+      block layout-content
+
+    include partials/footer
+
+    script(src="https://unpkg.com/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js")
+    script(src="https://unpkg.com/iconify-icon")

@@ -34,14 +34,14 @@ export async function getById(id: number): Promise<Item> {
     return itemToJson(item);
 }
 
-export async function add({ productId, price, stock = 0, specs }: Omit<Item, "id">): Promise<Item> {
+export async function add({ productId, price, specs }: Omit<Item, "id">): Promise<Item> {
     const item = await prisma.item.create({
         data: {
             product: {
                 connect: { id: productId }
             },
             price,
-            stock,
+
             specs: {
                 create: SpecModel.specsToConnect(specs)
             }
@@ -52,8 +52,8 @@ export async function add({ productId, price, stock = 0, specs }: Omit<Item, "id
     return itemToJson(item);
 }
 
-export async function update(id: number, { productId, price, stock, specs }: Partial<Omit<Item, "id">>): Promise<Item> {
-    const updateData: any = { price, stock };
+export async function update(id: number, { productId, price, specs }: Partial<Omit<Item, "id">>): Promise<Item> {
+    const updateData: any = { price };
 
     if (productId) {
         updateData.product = {
@@ -75,4 +75,11 @@ export async function update(id: number, { productId, price, stock, specs }: Par
     });
 
     return itemToJson(item);
+}
+
+export async function deleteByProductId(productId: string): Promise<number> {
+  const result = await prisma.item.deleteMany({
+    where: { productId },
+  });
+  return result.count;
 }
